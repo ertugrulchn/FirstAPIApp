@@ -1,31 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
+using PuppeteerSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
-using System.Net.Http;
-using PuppeteerSharp;
-using System.IO;
 
-namespace DataExtractionAPP.Controllers
+namespace FirstAPIApp.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WebSiteScreenshoot : Controller
     {
-        [HttpGet("WebSiteSourceCode")]
-        public String Get(String url)
-        {
-            HttpClient webSite = new HttpClient();
-            HttpResponseMessage client = webSite.GetAsync(url).Result;
-            var html = client.Content.ReadAsStringAsync().Result;
-            HtmlAgilityPack.HtmlDocument htmlDocument = new HtmlDocument();
-            htmlDocument.LoadHtml(html);
-            return html;
-        }
-
         [HttpGet("WebSiteScreenshot")]
         public async Task GoogleSS(String postUrl)
         {
