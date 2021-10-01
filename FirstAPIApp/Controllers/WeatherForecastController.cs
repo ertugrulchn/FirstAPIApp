@@ -31,7 +31,7 @@ namespace DataExtractionAPP.Controllers
         {
             Random rnd = new Random();
             int number = rnd.Next(1, 1000000000);
-            var outputFile = @$"D:\Temp\SS-{number}.png";
+            var outputFile = @$"D:\Temp\Screenshoot-{number}.png";
             await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision);
             var browser = await Puppeteer.LaunchAsync(new LaunchOptions
             {
