@@ -4,8 +4,6 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 .local-chromium
-chrome.dll
-interactive_ui_tests.exe
 
 # User-specific files
 *.rsuser
