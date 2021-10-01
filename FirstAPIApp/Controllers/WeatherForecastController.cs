@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,20 +15,18 @@ namespace DataExtractionAPP.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        [HttpGet]
-        public String Get()
+        [HttpGet("WebSiteSourceCode")]
+        public String Get(String url)
         {
             HttpClient webSite = new HttpClient();
-            HttpResponseMessage client = webSite.GetAsync("http://meraklicoder.com/").Result;
+            HttpResponseMessage client = webSite.GetAsync(url).Result;
             var html = client.Content.ReadAsStringAsync().Result;
             HtmlAgilityPack.HtmlDocument htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(html);
-            var sitePath = htmlDocument.DocumentNode.SelectNodes(@"//*[@id=""services""]/div/div[2]/div[1]/div/img");
-            return HtmlEntity.DeEntitize(sitePath.First().GetAttributes("src").Last().Value);
+            return html;
         }
 
-        [HttpGet("google")]
-        [Obsolete]
+        [HttpGet("WebSiteScreenshot")]
         public async Task GoogleSS(String postUrl)
         {
             Random rnd = new Random();
