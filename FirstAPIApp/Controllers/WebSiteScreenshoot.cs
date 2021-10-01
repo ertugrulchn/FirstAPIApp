@@ -9,7 +9,7 @@ namespace FirstAPIApp.Controllers
 {
     public class WebSiteScreenshoot : Controller
     {
-        [HttpGet("WebSiteScreenshot")]
+        [HttpGet]
         public async Task GoogleSS(String postUrl)
         {
             Random rnd = new Random();
